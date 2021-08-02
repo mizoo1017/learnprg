@@ -124,3 +124,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL = 'register.User'
+LOGIN_REDIRECT_URL = 'register:top'
+# # ログイン画面をどこにするか設定と、ログイン後のリダイレクト先を設定
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

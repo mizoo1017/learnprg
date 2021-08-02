@@ -31,7 +31,7 @@ from .forms import (
     EmailChangeForm,
 )
 
-from blog.views import post_list
+# from blog.views import post_list
 
 User = get_user_model()
 
