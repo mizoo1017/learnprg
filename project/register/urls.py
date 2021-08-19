@@ -21,5 +21,5 @@ urlpatterns = [
     path('email/change/', views.EmailChange.as_view(), name='email_change'),
     path('email/change/done/', views.EmailChangeDone.as_view(), name='email_change_done'),
     path('email/change/complete/<str:token>/', views.EmailChangeComplete.as_view(), name='email_change_complete'),
-    path('', views.post_list, name='post_list'),
+    # path('', views.post_list, name='post_list'),
 ]
