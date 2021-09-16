@@ -18,6 +18,7 @@ from django.urls import path
 from django.urls.conf import include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/',include(admin.site.urls)),
     path('', include('register.urls')),
+    path('putup/', include('putup.urls')),
 ]
