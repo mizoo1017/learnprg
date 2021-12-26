@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/',include(admin.site.urls)),
     path('', include('register.urls')),
     path('putup/', include('putup.urls')),
+    # include関数によりアプリケーション側のurls.pyと連結する。
+    # 引数はアプリケーションフォルダ内のurls.py
 ]
