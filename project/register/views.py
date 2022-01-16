@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.utils import timezone
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import (
     LoginRequiredMixin,
@@ -17,7 +18,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import send_mail
 from django.core.signing import BadSignature, SignatureExpired, loads, dumps
 from django.http import Http404, HttpResponseBadRequest
-from django.shortcuts import redirect, resolve_url
+from django.shortcuts import redirect, resolve_url, render
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.views import generic
@@ -30,8 +31,9 @@ from .forms import (
     MySetPasswordForm,
     EmailChangeForm,
 )
+from putup.models import Item
 
-# from blog.views import post_list
+# from putup.views import index
 
 User = get_user_model()
 
@@ -230,7 +232,6 @@ class EmailChangeComplete(LoginRequiredMixin, generic.TemplateView):
             request.user.save()
             return super().get(request, **kwargs)
 
-
-# def post_list(request):
-#     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-#     return render(request, 'blog/post_list.html', {'posts':posts})
+def item(request):
+    items = Item.objects.filter(created_date__lte=timezone.now()).order_by('created_date')
+    return render(request, 'putup/item.html/', {'items': items})

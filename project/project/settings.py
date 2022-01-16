@@ -11,10 +11,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+# BASE_DIR = manage.pyがはいっているディレクトリ
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -129,3 +130,12 @@ AUTH_USER_MODEL = 'register.User'
 LOGIN_REDIRECT_URL = 'register:top'
 # # ログイン画面をどこにするか設定と、ログイン後のリダイレクト先を設定
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+MEDIA_URL = '/media/'
+# メディアファイルを配信するディレクトリ
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# メディアファイルを格納するディレクトリ
+# https://note.com/daikinishimatsu/n/nb419a7e5d580
+# os.path.join(BASE_DIR, '') = BASE_DIRの中の''というフォルダへのパスを表す
+# https://note.com/masato1230/n/n597c31e5f12c
+# https://qiita.com/okoppe8/items/86776b8df566a4513e96

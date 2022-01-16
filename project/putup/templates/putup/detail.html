@@ -1,0 +1,15 @@
+{% extends 'putup/base.html' %}
+
+{% block content %}
+      <div>
+        <h3>タイトル：{{ detail.title }}</h3>
+          <p>出品日:{{ detail.created_date }}</p>
+          <p>出品者：{{ detail.seller }}</p>
+          <p>商品説明：{{ detail.description }}</p>
+          {% if detail.image %}
+          <p>商品画像：<img src="{{ detail.image.url }}"/></p>
+          {% endif %}
+          <p>開始価格：{{ detail.start_price }}円</p>
+          <p>商品状態：{{ detail.condition }}</p>
+      </div>
+{% endblock %}

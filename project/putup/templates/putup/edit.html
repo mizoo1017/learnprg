@@ -1,0 +1,13 @@
+{% extends 'putup/base.html' %}
+
+{% block content %}
+  <div>
+    <h3>出品フォーム</h3>
+    <form method="POST">{% csrf_token %}
+      <!-- https://blog.senseshare.jp/csrf.html -->
+      {{ form.as_p }}
+      <button type="submit">投稿</button>
+    </form>
+  </div>
+
+{% endblock %}
